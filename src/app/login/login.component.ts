@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username!: string;
   password!: string;
+  errorMessage: string = '';
+  isError = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -33,7 +35,8 @@ export class LoginComponent {
         );
       },
       (error) => {
-        console.log(error);
+        this.errorMessage = 'Invalid username or password';
+        this.isError = true;
       }
     );
   }

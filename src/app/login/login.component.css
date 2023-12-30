@@ -25,3 +25,8 @@
 .example-form button {
   margin-top: 20px; /* Adjust as needed */
 }
+
+.error {
+  border-color: red;
+  color: red;
+}
