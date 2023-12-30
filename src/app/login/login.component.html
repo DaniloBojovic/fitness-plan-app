@@ -1,0 +1,43 @@
+<!-- <form (ngSubmit)="login()">
+  <input
+    [(ngModel)]="username"
+    name="username"
+    placeholder="Username"
+    required
+  />
+  <input
+    [(ngModel)]="password"
+    name="password"
+    type="password"
+    placeholder="Password"
+    required
+  />
+  <button type="submit">Login</button>
+</form> -->
+
+<div class="login-container">
+  <form class="example-form" (ngSubmit)="login()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        placeholder="Username"
+        [(ngModel)]="username"
+        name="username"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        placeholder="Password"
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+      />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Login</button>
+  </form>
+</div>
