@@ -38,6 +38,15 @@
         <span class="description-text">{{ plan.description }}</span>
       </p>
     </mat-card-content>
+    <mat-card-content>
+      <button
+        mat-raised-button
+        (click)="generatePdf(plan)"
+        class="download-button"
+      >
+        Download PDF
+      </button>
+    </mat-card-content>
   </mat-card>
   <button
     mat-raised-button

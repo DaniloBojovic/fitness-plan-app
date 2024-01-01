@@ -45,3 +45,7 @@ mat-card img {
   font-family: "Comic Sans MS", cursive, sans-serif;
   color: #5e2943;
 }
+
+.download-button {
+  margin-top: 10px;
+}
