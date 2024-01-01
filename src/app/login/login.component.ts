@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './../services/auth.service';
-import { LoginResponse } from '../login-response';
+import { LoginResponse } from '../models/login-response';
 import { Router } from '@angular/router';
 import { tap, switchMap, catchError, delay, interval, of } from 'rxjs';
 

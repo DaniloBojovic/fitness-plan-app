@@ -53,6 +53,12 @@ server.get("/protected-endpoint", (req, res) => {
   res.json({ message: "This is a protected endpoint" });
 });
 
+// Add a route for /fitnessPlans
+server.get("/fitness-plans", (req, res) => {
+  const fitnessPlans = router.db.get("fitness-plans").value();
+  res.status(200).json(fitnessPlans);
+});
+
 server.use(router);
 server.listen(3000, () => {
   console.log("JSON Server is running");
