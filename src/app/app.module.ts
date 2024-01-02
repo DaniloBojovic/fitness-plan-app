@@ -13,9 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UserLoginComponent } from './auth/user-login/user-login.component';
+import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent],
+  declarations: [AppComponent, LoginComponent, DashboardComponent, UserLoginComponent, AdminLoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

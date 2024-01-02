@@ -51,6 +51,7 @@ export class LoginComponent {
       )
       .subscribe({
         next: (data) => {
+          debugger;
           console.log(data);
           this.router.navigate(['/dashboard']);
         },

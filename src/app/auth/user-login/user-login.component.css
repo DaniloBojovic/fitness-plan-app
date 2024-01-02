@@ -1,0 +1,51 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px;
+  padding-top: 30px;
+}
+
+mat-card {
+  display: block;
+  width: 90%;
+  margin-top: 40px;
+}
+
+.logout-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 1; /* This will ensure the button stays on top of other elements */
+}
+
+:host {
+  margin: 20px;
+}
+
+mat-card img {
+  max-width: 90%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.plan-card {
+  flex: 0 0 calc(50% - 10px);
+  margin: 5px;
+  max-width: 900px;
+}
+
+.plan-description {
+  margin-top: 20px;
+}
+
+.description-text {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #5e2943;
+}
+
+.download-button {
+  margin-top: 10px;
+}

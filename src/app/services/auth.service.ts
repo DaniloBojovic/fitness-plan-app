@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; // Import the HttpClient class
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { LoginResponse } from '../models/login-response';
 import { Router } from '@angular/router';
 
@@ -9,13 +9,28 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private apiUrl = 'http://localhost:3000';
+  private user!: { role: string };
+
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(username: string, password: string): Observable<LoginResponse> {
-    return this.httpClient.post<LoginResponse>(`${this.apiUrl}/auth/login`, {
-      username,
-      password,
-    });
+    debugger;
+    return this.httpClient
+      .post<LoginResponse>(`${this.apiUrl}/auth/login`, {
+        username,
+        password,
+      })
+      .pipe(
+        tap((response) => {
+          this.user = {
+            role: response.role,
+          };
+        })
+      );
+  }
+
+  isAdmin(): boolean {
+    return this.user && this.user.role === 'admin';
   }
 
   logout() {

@@ -24,7 +24,9 @@ server.post("/auth/login", (req, res) => {
     const token = jwt.sign({ userId: user.id }, "your-secret-key", {
       expiresIn: "1h",
     });
-    res.status(200).json({ token });
+    res
+      .status(200)
+      .json({ token, role: username === "admin" ? "admin" : "user" });
   } else {
     // User not found, return an error
     res.status(401).json({ message: "Invalid username or password" });
