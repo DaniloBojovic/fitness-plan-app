@@ -1,0 +1,35 @@
+:host {
+  margin: 20px;
+}
+
+mat-card {
+  display: block;
+  width: 90%;
+  margin-top: 40px;
+}
+
+.edit-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.logout-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 1; /* This will ensure the button stays on top of other elements */
+}
+
+.create-plan-button {
+  margin-left: 20px; /* Adjust as needed */
+}
+
+.welcome-txt {
+  text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #5e2943;
+  font-size: 2em;
+}

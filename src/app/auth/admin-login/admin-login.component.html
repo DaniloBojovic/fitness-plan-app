@@ -1,1 +1,46 @@
-<p>admin-login works!</p>
+<div class="admin-login">
+  <h1 class="welcome-txt">Welcome, Admin!</h1>
+  <button
+    class="create-plan-button"
+    mat-raised-button
+    color="secondary"
+    (click)="newPlan()"
+  >
+    Create New Fitness Plan
+  </button>
+  <mat-card class="plan-card" *ngFor="let plan of fitnessPlans">
+    <mat-card-header>
+      <mat-card-title>{{ plan.name }}</mat-card-title>
+      <mat-card-subtitle
+        ><div class="stars">
+          <p>
+            Level:
+            <fa-icon
+              *ngFor="let i of [].constructor(plan.level); let index = index"
+              [icon]="faStar"
+            ></fa-icon>
+          </p></div
+      ></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="plan-description">
+        <span class="description-text">{{ plan.description }}</span>
+      </p>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-icon class="edit-button" (click)="editPlan(plan)"
+        >more_vert</mat-icon
+      ></mat-card-content
+    >
+  </mat-card>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="logout-button"
+    (click)="logout()"
+  >
+    Logout
+  </button>
+</div>

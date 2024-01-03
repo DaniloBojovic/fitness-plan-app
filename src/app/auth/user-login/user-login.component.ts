@@ -20,15 +20,10 @@ export class UserLoginComponent {
   ) {}
 
   ngOnInit() {
-    debugger;
     this.fitnessPlanService.getFitnessPlans().subscribe((plans) => {
       console.log(plans);
       this.fitnessPlans = plans;
     });
-  }
-
-  logout() {
-    this.authService.logout();
   }
 
   generatePdf(plan: FitnessPlan) {
@@ -59,5 +54,9 @@ export class UserLoginComponent {
     });
 
     doc.save(`${plan.name}.pdf`);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

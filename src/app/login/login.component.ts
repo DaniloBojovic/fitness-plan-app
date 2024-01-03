@@ -14,37 +14,18 @@ export class LoginComponent {
   password!: string;
   errorMessage: string = '';
   isError = false;
+  role!: string;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    // this.authService.login(this.username, this.password).subscribe(
-    //   (response: LoginResponse) => {
-    //     localStorage.setItem('token', response.token);
-    //     console.log(`RESPONSE : ${response.token}`);
-
-    //     this.authService.getProtectedData().subscribe(
-    //       (data) => {
-    //         debugger;
-    //         console.log(data);
-    //         this.router.navigate(['/dashboard']);
-    //       },
-    //       (error) => {
-    //         console.log(error);
-    //       }
-    //     );
-    //   },
-    //   (error) => {
-    //     this.errorMessage = 'Invalid username or password';
-    //     this.isError = true;
-    //   }
-    // );
-
     this.authService
       .login(this.username, this.password)
       .pipe(
         switchMap((response: LoginResponse) => {
+          debugger;
           localStorage.setItem('token', response.token);
+          this.role = response.role;
           console.log(`RESPONSE : ${response.token}`);
           return this.authService.getProtectedData();
         })
@@ -52,8 +33,8 @@ export class LoginComponent {
       .subscribe({
         next: (data) => {
           debugger;
-          console.log(data);
-          this.router.navigate(['/dashboard']);
+          const route = `/${this.role}-login`;
+          this.router.navigate([route]);
         },
         error: (error) => {
           this.errorMessage = 'Invalid username or password';

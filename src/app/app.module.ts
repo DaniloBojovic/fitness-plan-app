@@ -15,9 +15,16 @@ import { MatCardModule } from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserLoginComponent } from './auth/user-login/user-login.component';
 import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent, UserLoginComponent, AdminLoginComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    UserLoginComponent,
+    AdminLoginComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +36,7 @@ import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
     MatButtonModule,
     MatCardModule,
     FontAwesomeModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
