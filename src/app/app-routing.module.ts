@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth-guard.service';
 import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
 import { UserLoginComponent } from './auth/user-login/user-login.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   {
     path: 'admin-login',
     component: AdminLoginComponent,

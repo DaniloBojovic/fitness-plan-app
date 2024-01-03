@@ -16,6 +16,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserLoginComponent } from './auth/user-login/user-login.component';
 import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
 import { MatIconModule } from '@angular/material/icon';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     DashboardComponent,
     UserLoginComponent,
     AdminLoginComponent,
+    NavbarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     FontAwesomeModule,
     MatIconModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

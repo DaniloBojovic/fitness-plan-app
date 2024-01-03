@@ -10,11 +10,13 @@ import { Router } from '@angular/router';
 export class AuthService {
   private apiUrl = 'http://localhost:3000';
   private user!: { role: string };
+  private userName!: string;
 
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(username: string, password: string): Observable<LoginResponse> {
     debugger;
+    this.userName = username;
     return this.httpClient
       .post<LoginResponse>(`${this.apiUrl}/auth/login`, {
         username,
@@ -29,7 +31,13 @@ export class AuthService {
       );
   }
 
+  getUserName(): string {
+    debugger;
+    return this.userName;
+  }
+
   isAdmin(): boolean {
+    debugger;
     return this.user && this.user.role === 'admin';
   }
 
@@ -47,7 +55,6 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    debugger;
     const token = localStorage.getItem('token');
     // Check if token is set
     if (token) {

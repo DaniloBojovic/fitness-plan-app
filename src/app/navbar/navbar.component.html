@@ -1,0 +1,21 @@
+<nav *ngIf="authService.isAuthenticated()">
+  <mat-toolbar color="primary">
+    <a mat-button routerLink="/home">Home</a>
+    <a *ngIf="!authService.isAdmin()" mat-button routerLink="/user-login"
+      >Fitness Plan</a
+    >
+    <a *ngIf="authService.isAdmin()" mat-button routerLink="/admin-login"
+      >Fitness Plan</a
+    >
+    <a mat-button routerLink="/contact">Contact</a>
+    <button
+      mat-raised-button
+      color="primary"
+      class="logout-button"
+      (click)="logout()"
+    >
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </button>
+  </mat-toolbar>
+</nav>
