@@ -23,7 +23,6 @@ export class LoginComponent {
       .login(this.username, this.password)
       .pipe(
         switchMap((response: LoginResponse) => {
-          debugger;
           localStorage.setItem('token', response.token);
           this.role = response.role;
           console.log(`RESPONSE : ${response.token}`);
@@ -32,7 +31,6 @@ export class LoginComponent {
       )
       .subscribe({
         next: (data) => {
-          debugger;
           const route = `/${this.role}-login`;
           this.router.navigate([route]);
         },

@@ -21,6 +21,7 @@ export class AdminLoginComponent {
   ) {}
 
   ngOnInit() {
+    debugger;
     this.fitnessPlanService.getFitnessPlans().subscribe((plans) => {
       this.fitnessPlans = plans;
     });
@@ -37,7 +38,6 @@ export class AdminLoginComponent {
   }
 
   logout() {
-    // Call the logout method from AuthService
     this.authService.logout();
   }
 }

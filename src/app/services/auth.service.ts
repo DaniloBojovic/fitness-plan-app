@@ -15,8 +15,7 @@ export class AuthService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(username: string, password: string): Observable<LoginResponse> {
-    debugger;
-    this.userName = username;
+    //this.userName = username;
     return this.httpClient
       .post<LoginResponse>(`${this.apiUrl}/auth/login`, {
         username,
@@ -24,20 +23,18 @@ export class AuthService {
       })
       .pipe(
         tap((response) => {
-          this.user = {
-            role: response.role,
-          };
+          this.user = { role: response.role };
+          localStorage.setItem('userName', username);
         })
       );
   }
 
   getUserName(): string {
-    debugger;
-    return this.userName;
+    //return this.userName;
+    return localStorage.getItem('userName') || '';
   }
 
   isAdmin(): boolean {
-    debugger;
     return this.user && this.user.role === 'admin';
   }
 

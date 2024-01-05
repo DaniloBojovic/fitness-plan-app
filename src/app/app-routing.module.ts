@@ -16,14 +16,30 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  // {
+  //   path: 'admin-login',
+  //   component: AdminLoginComponent,
+  //   canActivate: [AuthGuard],
+  // },
   {
     path: 'admin-login',
-    component: AdminLoginComponent,
+    loadChildren: () =>
+      import('./auth/admin-login/admin-login.module').then(
+        (m) => m.AdminLoginModule
+      ),
     canActivate: [AuthGuard],
   },
+  // {
+  //   path: 'user-login',
+  //   component: UserLoginComponent,
+  //   canActivate: [AuthGuard],
+  // },
   {
     path: 'user-login',
-    component: UserLoginComponent,
+    loadChildren: () =>
+      import('./auth/user-login/user-login.module').then(
+        (m) => m.UserLoginModule
+      ),
     canActivate: [AuthGuard],
   },
   //{ path: '**', component: PageNotFoundComponent }

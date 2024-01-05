@@ -10,7 +10,6 @@ export class NavbarComponent {
   constructor(public authService: AuthService) {}
 
   logout() {
-    debugger;
     this.authService.logout();
   }
 }

@@ -1,0 +1,10 @@
+.welcome-txt {
+  text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #5e2943;
+  font-size: 2em;
+}
+
+.bold-text {
+  font-weight: bold;
+}

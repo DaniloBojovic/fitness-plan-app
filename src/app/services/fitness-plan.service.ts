@@ -11,8 +11,6 @@ export class FitnessPlanService {
   constructor(private httpClient: HttpClient) {}
 
   getFitnessPlans(): Observable<any> {
-    // Replace with your actual API endpoint
-    debugger;
     return this.httpClient.get(`${this.apiUrl}/fitness-plans`);
   }
 }
