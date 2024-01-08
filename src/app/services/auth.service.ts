@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'; // Import the Ht
 import { Observable, tap } from 'rxjs';
 import { LoginResponse } from '../models/login-response';
 import { Router } from '@angular/router';
+import { UserProfile } from '../models/user-profile.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +24,9 @@ export class AuthService {
       })
       .pipe(
         tap((response) => {
+          debugger;
           this.user = { role: response.role };
+          localStorage.setItem('userId', response.userId);
           localStorage.setItem('userName', username);
         })
       );
@@ -32,6 +35,10 @@ export class AuthService {
   getUserName(): string {
     //return this.userName;
     return localStorage.getItem('userName') || '';
+  }
+
+  getUserId(): string {
+    return localStorage.getItem('userId') || '';
   }
 
   isAdmin(): boolean {
@@ -59,5 +66,23 @@ export class AuthService {
     } else {
       return false;
     }
+  }
+
+  getProfile(userId: string): Observable<UserProfile> {
+    return this.httpClient.get<UserProfile>(
+      `${this.apiUrl}/profile?userId=${userId}`
+    );
+  }
+
+  updateProfile(
+    userId: string,
+    password: string,
+    profile: UserProfile
+  ): Observable<any> {
+    return this.httpClient.put(`${this.apiUrl}/profile`, {
+      userId,
+      password,
+      profile,
+    });
   }
 }

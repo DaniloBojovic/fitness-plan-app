@@ -12,7 +12,6 @@ export class HomeComponent {
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    debugger;
     this.userName = this.authService.getUserName();
   }
 }

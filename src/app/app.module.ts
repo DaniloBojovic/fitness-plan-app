@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 //import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
 import { UserLoginModule } from './auth/user-login/user-login.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     //AdminLoginComponent,
     NavbarComponent,
     HomeComponent,
+    ProfileSettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     FontAwesomeModule,
     MatIconModule,
     MatToolbarModule,
+    ReactiveFormsModule,
     //UserLoginModule,
     //DashboardModule,
   ],

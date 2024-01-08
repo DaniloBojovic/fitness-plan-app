@@ -24,9 +24,11 @@ server.post("/auth/login", (req, res) => {
     const token = jwt.sign({ userId: user.id }, "your-secret-key", {
       expiresIn: "1h",
     });
-    res
-      .status(200)
-      .json({ token, role: username === "admin" ? "admin" : "user" });
+    res.status(200).json({
+      userId: user.id,
+      token: token,
+      role: username === "admin" ? "admin" : "user",
+    });
   } else {
     // User not found, return an error
     res.status(401).json({ message: "Invalid username or password" });
@@ -58,6 +60,40 @@ server.get("/protected-endpoint", (req, res) => {
 // Add a route for /fitnessPlans
 server.get("/fitness-plans", (req, res) => {
   const fitnessPlans = router.db.get("fitness-plans").value();
+  res.status(200).json(fitnessPlans);
+});
+
+// Get user profile
+server.get("/profile", (req, res) => {
+  const { userId } = req.query;
+  const user = router.db.get("users").find({ id: userId }).value();
+
+  if (user) {
+    res.status(200).json(user.profile);
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+});
+
+// Update user profile
+server.put("/profile", (req, res) => {
+  const { userId, password, profile } = req.body;
+  const user = router.db.get("users").find({ id: userId });
+
+  if (user.value()) {
+    user.assign({ password, profile }).write();
+    res.status(200).json({ message: "Profile updated" });
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+});
+
+server.get("/fitness-plans/search", (req, res) => {
+  const term = req.query.name_like;
+  const fitnessPlans = router.db
+    .get("fitness-plans")
+    .filter((plan) => plan.name.includes(term))
+    .value();
   res.status(200).json(fitnessPlans);
 });
 

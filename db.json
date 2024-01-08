@@ -1,7 +1,35 @@
 {
   "users": [
-    { "id": 1, "username": "user1", "password": "pass1" },
-    { "id": 2, "username": "admin", "password": "admin" }
+    {
+      "id": "1",
+      "username": "user1",
+      "password": "user1",
+      "profile": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john.doe@example.com"
+      }
+    },
+    {
+      "id": "2",
+      "username": "user2",
+      "password": "pass2",
+      "profile": {
+        "firstName": "User",
+        "lastName": "Doe",
+        "email": "user.doe@example.com"
+      }
+    },
+    {
+      "id": "3",
+      "username": "admin",
+      "password": "admin",
+      "profile": {
+        "firstName": "Admin",
+        "lastName": "Admin",
+        "email": "admin@example.com"
+      }
+    }
   ],
   "fitness-plans": [
     {
