@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import jsPDF from 'jspdf';
-import { debounceTime, distinctUntilChanged, switchMap, of } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, of, tap } from 'rxjs';
 import { FitnessPlan } from 'src/app/models/fitness-plan.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { FitnessPlanService } from 'src/app/services/fitness-plan.service';
@@ -16,6 +16,7 @@ export class UserLoginComponent {
   fitnessPlans: FitnessPlan[] = [];
   faStar = faStar;
   searchControl = new FormControl();
+  loading = false;
 
   constructor(
     private authService: AuthService,
@@ -30,13 +31,15 @@ export class UserLoginComponent {
 
     this.searchControl.valueChanges
       .pipe(
+        tap(() => (this.loading = true)),
         debounceTime(500),
         distinctUntilChanged(),
         switchMap((term) =>
           term
             ? this.fitnessPlanService.searchFitnessPlans(term)
             : this.fitnessPlanService.getFitnessPlans()
-        )
+        ),
+        tap(() => (this.loading = false))
       )
       .subscribe((plans) => (this.fitnessPlans = plans));
   }
