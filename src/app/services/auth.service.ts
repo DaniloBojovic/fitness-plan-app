@@ -24,7 +24,6 @@ export class AuthService {
       })
       .pipe(
         tap((response) => {
-          debugger;
           this.user = { role: response.role };
           localStorage.setItem('userId', response.userId);
           localStorage.setItem('userName', username);

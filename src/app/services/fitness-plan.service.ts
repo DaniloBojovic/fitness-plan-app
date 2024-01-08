@@ -16,7 +16,6 @@ export class FitnessPlanService {
   }
 
   searchFitnessPlans(term: string): Observable<FitnessPlan[]> {
-    debugger;
     return this.httpClient.get<FitnessPlan[]>(
       `${this.apiUrl}/fitness-plans/search?name_like=${term}`
     );
