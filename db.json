@@ -66,6 +66,62 @@
       "level": 5,
       "description": "Weightlifting involves using external resistance—such as dumbbells or weight machines—to challenge and strengthen your muscles. No access to a gym or equipment? No problem! Bodyweight exercises utilize your bodyweight as resistance and require no additional equipment, meaning they can be done almost anywhere. Both weightlifting and bodyweight exercises offer a variety of benefits.",
       "imageUrl": "assets/Strength_Athlete_Plan.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Muscle Building Plan",
+      "level": 2,
+      "description": "This program isn’t just for the true beginner who has never touched a weight before; it’s also suitable for anyone who has taken an extended leave of absence from training. How long has it been since you went to the gym regularly? Six months? A year? Five years? No worries: The following routines will get you back on track in—you guessed it—just four short weeks. Let’s get to work.",
+      "imageUrl": "assets/Muscle_Building_plan.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Cardio Plan",
+      "level": 2,
+      "description": "To make the most of your cardio workouts as a beginner, establish a routine, understand the frequency and duration of your activities, and prepare appropriately. ",
+      "imageUrl": "assets/Cardio_Plan.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Cardio + Strength Plan",
+      "level": 3,
+      "description": "Cardio exercises are designed to elevate your heart rate and promote cardiovascular fitness. Strength training is a form of exercise that improves muscular strength and endurance. It typically involves resistance-based activities that challenge your muscles using weights, resistance bands, or your own bodyweight. Incorporating strength training into your fitness routine helps build lean muscle mass, increases bone density, improves posture, and enhances overall physical performance.",
+      "imageUrl": "assets/Cardio+Strength_Plan.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Endurance Athlete Plan",
+      "level": 5,
+      "description": "Recovery-based training should be a primary focus of program design. Without adequate recovery, athletes will not optimally progress and reach their full potential. Note that recovery does not only mean days of rest without activity. Recovery takes many forms, including things such as skill and technique practice, massage, good sleep, aerobic cross-training, and proper nutrition.",
+      "imageUrl": "assets/Endurance_Athlete_Plan.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Strength Athlete Plan",
+      "level": 5,
+      "description": "Weightlifting involves using external resistance—such as dumbbells or weight machines—to challenge and strengthen your muscles. No access to a gym or equipment? No problem! Bodyweight exercises utilize your bodyweight as resistance and require no additional equipment, meaning they can be done almost anywhere. Both weightlifting and bodyweight exercises offer a variety of benefits.",
+      "imageUrl": "assets/Strength_Athlete_Plan.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Muscle Building Plan",
+      "level": 2,
+      "description": "This program isn’t just for the true beginner who has never touched a weight before; it’s also suitable for anyone who has taken an extended leave of absence from training. How long has it been since you went to the gym regularly? Six months? A year? Five years? No worries: The following routines will get you back on track in—you guessed it—just four short weeks. Let’s get to work.",
+      "imageUrl": "assets/Muscle_Building_plan.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Cardio Plan",
+      "level": 2,
+      "description": "To make the most of your cardio workouts as a beginner, establish a routine, understand the frequency and duration of your activities, and prepare appropriately. ",
+      "imageUrl": "assets/Cardio_Plan.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Cardio + Strength Plan",
+      "level": 3,
+      "description": "Cardio exercises are designed to elevate your heart rate and promote cardiovascular fitness. Strength training is a form of exercise that improves muscular strength and endurance. It typically involves resistance-based activities that challenge your muscles using weights, resistance bands, or your own bodyweight. Incorporating strength training into your fitness routine helps build lean muscle mass, increases bone density, improves posture, and enhances overall physical performance.",
+      "imageUrl": "assets/Cardio+Strength_Plan.jpg"
     }
   ]
 }

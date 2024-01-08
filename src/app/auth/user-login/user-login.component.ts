@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { PageEvent } from '@angular/material/paginator';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import jsPDF from 'jspdf';
 import { debounceTime, distinctUntilChanged, switchMap, of, tap } from 'rxjs';
@@ -17,6 +18,8 @@ export class UserLoginComponent {
   faStar = faStar;
   searchControl = new FormControl();
   loading = false;
+  allFitnessPlans: FitnessPlan[] = [];
+  pageSize: number = 10;
 
   constructor(
     private authService: AuthService,
@@ -26,7 +29,8 @@ export class UserLoginComponent {
   ngOnInit() {
     this.fitnessPlanService.getFitnessPlans().subscribe((plans) => {
       console.log(plans);
-      this.fitnessPlans = plans;
+      this.allFitnessPlans = plans;
+      this.fitnessPlans = plans.slice(0, this.pageSize);
     });
 
     this.searchControl.valueChanges
@@ -72,6 +76,12 @@ export class UserLoginComponent {
     });
 
     doc.save(`${plan.name}.pdf`);
+  }
+
+  handlePageEvent(event: PageEvent) {
+    const startIndex = event.pageIndex * event.pageSize;
+    const endIndex = startIndex + event.pageSize;
+    this.fitnessPlans = this.allFitnessPlans.slice(startIndex, endIndex);
   }
 
   logout() {

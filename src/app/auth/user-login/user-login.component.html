@@ -45,3 +45,10 @@
     </mat-card-content>
   </mat-card>
 </div>
+<mat-paginator
+  [length]="allFitnessPlans.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 20]"
+  (page)="handlePageEvent($event)"
+>
+</mat-paginator>
