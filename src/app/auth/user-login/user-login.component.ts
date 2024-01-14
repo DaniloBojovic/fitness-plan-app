@@ -3,7 +3,14 @@ import { FormControl } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import jsPDF from 'jspdf';
-import { debounceTime, distinctUntilChanged, switchMap, of, tap } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  switchMap,
+  of,
+  tap,
+  catchError,
+} from 'rxjs';
 import { FitnessPlan } from 'src/app/models/fitness-plan.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { FitnessPlanService } from 'src/app/services/fitness-plan.service';
@@ -27,11 +34,19 @@ export class UserLoginComponent {
   ) {}
 
   ngOnInit() {
-    this.fitnessPlanService.getFitnessPlans().subscribe((plans) => {
-      console.log(plans);
-      this.allFitnessPlans = plans;
-      this.fitnessPlans = plans.slice(0, this.pageSize);
-    });
+    this.fitnessPlanService
+      .getFitnessPlans()
+      .pipe(
+        catchError((error) => {
+          console.log(error);
+          return of([]);
+        })
+      )
+      .subscribe((plans) => {
+        console.log(plans);
+        this.allFitnessPlans = plans;
+        this.fitnessPlans = plans.slice(0, this.pageSize);
+      });
 
     this.searchControl.valueChanges
       .pipe(
