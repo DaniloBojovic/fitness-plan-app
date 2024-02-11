@@ -1,0 +1,22 @@
+<form [formGroup]="createPlanForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+
+  <label for="star-rating">Level:</label>
+  <app-star-rating
+    id="star-rating"
+    class="star-rating"
+    formControlName="level"
+  ></app-star-rating>
+
+  <!-- add other fields as necessary -->
+
+  <button mat-raised-button color="primary" type="submit">Create Plan</button>
+</form>

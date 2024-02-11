@@ -1,0 +1,15 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+}
+
+mat-form-field {
+  margin-bottom: 20px;
+}
+
+.star-rating {
+  padding: 10px 0;
+  margin: 10px 0;
+}

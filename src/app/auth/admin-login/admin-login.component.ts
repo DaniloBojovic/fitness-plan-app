@@ -4,6 +4,8 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FitnessPlan } from 'src/app/models/fitness-plan.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { FitnessPlanService } from 'src/app/services/fitness-plan.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreatePlanDialogComponent } from '../create-plan-dialog/create-plan-dialog.component';
 
 @Component({
   selector: 'app-admin-login',
@@ -17,7 +19,8 @@ export class AdminLoginComponent {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private fitnessPlanService: FitnessPlanService
+    private fitnessPlanService: FitnessPlanService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -32,9 +35,15 @@ export class AdminLoginComponent {
     this.router.navigate(['/edit-plan', plan.id]);
   }
 
-  newPlan() {
-    // Navigate to the new plan route
-    this.router.navigate(['/new-plan']);
+  openCreatePlanDialog() {
+    const dialogRef = this.dialog.open(CreatePlanDialogComponent, {
+      width: '500px',
+      height: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   logout() {

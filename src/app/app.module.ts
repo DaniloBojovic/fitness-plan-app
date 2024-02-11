@@ -22,6 +22,9 @@ import { HomeComponent } from './home/home.component';
 import { UserLoginModule } from './auth/user-login/user-login.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CreatePlanDialogComponent } from './auth/create-plan-dialog/create-plan-dialog.component';
+import { StarRatingComponent } from './shared/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { ProfileSettingsComponent } from './profile-settings/profile-settings.co
     NavbarComponent,
     HomeComponent,
     ProfileSettingsComponent,
+    PageNotFoundComponent,
+    CreatePlanDialogComponent,
+    StarRatingComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,5 +59,6 @@ import { ProfileSettingsComponent } from './profile-settings/profile-settings.co
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [StarRatingComponent],
 })
 export class AppModule {}

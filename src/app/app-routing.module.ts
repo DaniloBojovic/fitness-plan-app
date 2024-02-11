@@ -7,6 +7,7 @@ import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
 import { UserLoginComponent } from './auth/user-login/user-login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -44,7 +45,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'profile-settings', component: ProfileSettingsComponent },
-  //{ path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
